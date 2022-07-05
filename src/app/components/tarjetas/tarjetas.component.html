@@ -1,0 +1,26 @@
+<div class="card-columns m-7 animated fadeIn">
+    <div *ngFor="let item of items" class="card puntero">
+        <!--<div [ngIfElse]="loading">-->
+        <img (click)="verArtista(item)" class=" card-img-top " [src]="item.images | notImage" alt="Card image cap">
+        <div class="card-body ">
+            <h5 class="card-title ">
+                {{item.name | truncate:20}}
+            </h5>
+            <h6 class="card-subtitle card-text">
+                {{item.album_type}}
+            </h6>
+            <p class="card-text m-2">
+                <span *ngFor="let artista of item.artists" class="badge badge-pill badge-primary">
+                {{artista.name}}
+              </span>
+            </p>
+            <!--<p class="card-text ">
+                <span *ngFor="let ref of item.artists"><a [href]='ref.external_urls.spotify' target='_blank' class="badge badge-pill badge-primary">Escuchar {{ref.name}} </a></span>
+            </p>-->
+        </div>
+        <!--</div>
+        <ng-template #loading>
+            <div>Loading...</div>
+        </ng-template>-->
+    </div>
+</div>
